@@ -1,0 +1,25 @@
+.header {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px; // this could be an utility class
+
+  &__logo {
+    width: 70px;
+  }
+
+  &__list {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    list-style-type: none;
+    column-gap: 15px;
+  }
+
+  &__link {
+    color: black;
+    text-decoration: none;
+  }
+}
