@@ -1,5 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 
+
+// Helper function
 const addCartItem = (cartItems, productToAdd) => {
   const existingCartItem = cartItems.find(cartItem => 
     cartItem.id === productToAdd.id
@@ -16,23 +18,25 @@ const addCartItem = (cartItems, productToAdd) => {
   return newCartItems;
 };
 
+
+// Context
 export const CartContext = createContext({
   isCartOpen: false,
   setIsCartOpen: () => {},
   cartItems: [],
   addItemToCart: () => {},
-  cartItemCount: 0,
+  cartCount: 0,
 });
 
 export const CartProvider = ({children}) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
-  const [cartItemCount, setCartItemCount] = useState(0);
+  const [cartCount, setCartCount] = useState(0);
 
   useEffect(()  => {
     const count = cartItems.reduce(
       (total, cartItem) => total + cartItem.quantity, 0) 
-    setCartItemCount(count);
+    setCartCount(count);
   }, [cartItems]);
 
   const addItemToCart = (productToAdd) => {
@@ -44,7 +48,7 @@ export const CartProvider = ({children}) => {
     setIsCartOpen, 
     addItemToCart, 
     cartItems, 
-    cartItemCount
+    cartCount,
   };
 
   return (

@@ -1,22 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
-import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { ProductsProvider } from './contexts/products.context';
-import { CartProvider } from './contexts/cart.context';
+// import { ProductsProvider } from './contexts/products.context';
+// import { CartProvider } from './contexts/cart.context';
+import store from './redux/store/store';
+
+import './index.scss';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <ProductsProvider>
-        <CartProvider>
-          <App />
-        </CartProvider>
-      </ProductsProvider>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        {/* <ProductsProvider>
+          <CartProvider> */}
+            <App />
+          {/* </CartProvider>
+        </ProductsProvider> */}
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
