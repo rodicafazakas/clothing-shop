@@ -25,7 +25,7 @@ const Header = () => {
           <Link className='header__link' to='/shop'>CONTACT</Link>
         </li> 
         <li className='header__item'>
-          <Link className='header__link' to='/shop'>SIGN IN</Link>
+          <Link className='header__link' to='/sign-in'>SIGN IN</Link>
         </li>  
         <li className='header__item'>  
            <CartIcon />

@@ -1,15 +1,49 @@
 
 .category-container {
-    min-width: 30%;
-    height: 240px;
-    border: 1px solid black;
-    background-color: yellow;
-    display: flex;
-    align-items: center; // vertically aligned
-    justify-content: center; // horizontally aligned
-    flex: 1 1 auto; // the last 2 cards equally take up any free space 
-    overflow: hidden;
+  min-width: 30%;
+  height: 250px;
+  border: 1px solid black;
+  background-color: yellow;
+  display: flex;
+  align-items: center; // vertically aligned
+  justify-content: center; // horizontally aligned
+  flex: 1 1 auto; // the last 2 cards equally take up any free space 
+  overflow: hidden;
+
+  &:hover {
+    cursor: pointer;
   }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center; //horizontally aligned
+    justify-content: center; // vertically aligned
+    padding: 0 25px;
+    height: 90px;
+    background-color: white;
+    opacity: 0.7;
+    position: absolute;
+    border: 1px solid black;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  &__title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #4a4a4a;
+    margin: 0 auto;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-size: 16px;
+    font-weight: lighter;
+  }
+}
   
   .category-background-image {
     width: 100%;
@@ -18,13 +52,3 @@
     background-position: center;
   }
   
-  .category-body-container {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid black;
-    align-items: center; //horizontally aligned
-    justify-content: center; // vertically aligned
-    padding: 0 25px;
-    height: 90px;
-    position: absolute;
-  }
