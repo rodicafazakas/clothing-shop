@@ -1,17 +1,22 @@
 
 .category-container {
-  min-width: 30%;
+  min-width: 200px;
   height: 250px;
   border: 1px solid black;
-  background-color: yellow;
   display: flex;
   align-items: center; // vertically aligned
   justify-content: center; // horizontally aligned
-  flex: 1 1 auto; // the last 2 cards equally take up any free space 
+  flex: 1 1 30%; // the last 2 cards equally take up any free space 
   overflow: hidden;
 
   &:hover {
     cursor: pointer;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   &__body {
@@ -19,12 +24,14 @@
     flex-direction: column;
     align-items: center; //horizontally aligned
     justify-content: center; // vertically aligned
+    row-gap: 13px;
     padding: 0 25px;
     height: 90px;
     background-color: white;
     opacity: 0.7;
     position: absolute;
     border: 1px solid black;
+
 
     &:hover {
       opacity: 0.9;
@@ -35,7 +42,6 @@
     font-size: 22px;
     font-weight: bold;
     color: #4a4a4a;
-    margin: 0 auto;
     text-transform: uppercase;
   }
 
@@ -44,11 +50,3 @@
     font-weight: lighter;
   }
 }
-  
-  .category-background-image {
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-  }
-  

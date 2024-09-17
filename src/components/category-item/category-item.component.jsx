@@ -1,16 +1,18 @@
 import './category-item.styles.scss';
 
+const COMPONENT = 'category-container'; 
+
 const CategoryItem = ({category}) => {
  return (
-  <div className='category-container'>
-    <div className='category-background-image' style={{
-      backgroundImage: `url(${category.imageUrl})`
-    }} />
-    {/* <div className='category-background-image'>
-      <img src={category.imageUrl}/>
-    </div> */}
-    <div className='category-container__body'>
-      <h2 className='category-container__title'>{category.title}</h2>
+  <div className={COMPONENT}>
+    <img 
+      alt={category.title}
+      src={category.imageUrl} 
+      className={`${COMPONENT}__image`} 
+    />
+
+    <div className={`${COMPONENT}__body`}>
+      <h2 className={`${COMPONENT}__title`}>{category.title}</h2>
       <p>Shop Now</p>
     </div>
   </div>
