@@ -1,8 +1,17 @@
 .sign-up-form {
+  max-width: 50%;
 
-  &__fields {
+  &__message {
+    margin-bottom: 45px;
+  }
+
+  &__inputs {
     display: flex;
     flex-direction: column;
-    row-gap: 10px;
+    row-gap: 45px;
+  }
+
+  &__submit {
+    margin-bottom: 45px;
   }
 }

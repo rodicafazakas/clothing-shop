@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import { createUserDocumentFromAuth, createAuthUserWithEmailAndPassword } from "../../utils/firebase/firebase.utils";
+import FormInput  from '../form-input/form-input.component';
 
 import "./sign-up-form.styles.scss";
 
@@ -45,53 +46,57 @@ const SignUpForm = () => {
 
   return (
     <div className={`${COMPONENT}`}>
-      <h1>Sign in with your email and password</h1>
+      <h1 className={`${COMPONENT}__message`}>
+        Sign in with your email and password
+      </h1>
 
       <form 
-        className={`${COMPONENT}__fields`}
+        className={`${COMPONENT}__inputs`}
         onSubmit={handleSubmit}
       >
-        <label htmlFor="name">Display name</label>
-        <input 
-          type="text" 
-          id="name" 
-          name="displayName"
-          value={displayName}
+        <FormInput
+          id="name"
+          label="Display name" 
+          name="displayName" 
           onChange={handleChange} 
-          required 
+          type="text"
+          value={displayName} 
         />
 
-        <label htmlFor="email">Email</label>
-        <input 
-          type="email" 
+        <FormInput 
           id="email"
-          name="email"
-          value={email}
-          required
+          label="Email" 
+          name="email" 
           onChange={handleChange} 
+          type="email"
+          value={email} 
         />
-        
-        <label htmlFor="password">Password</label>
-        <input 
-          type="password" 
+
+        <FormInput 
           id="password"
+          label="Password" 
           name="password" 
-          value={password}
-          required 
           onChange={handleChange} 
+          type="password"
+          value={password} 
+        />
+
+        <FormInput 
+          id="confirm-password"
+          label="Confirm password" 
+          name="confirmPassword" 
+          onChange={handleChange} 
+          type="password"
+          value={confirmPassword} 
         />
         
-        <label htmlFor="confirm-password">Confirm password</label>
-        <input 
-          type="password" 
-          id="confirm-password" 
-          name="confirmPassword"
-          value={confirmPassword}
-          required 
-          onChange={handleChange} 
-        />
-        
-        <button type="submit">SIGN UP</button>
+        <button 
+          className={`${COMPONENT}__submit`} 
+          type="submit"
+        >
+          SIGN UP
+        </button>
+
       </form>
     </div>
   )
