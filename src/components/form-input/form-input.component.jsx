@@ -4,7 +4,6 @@ const COMPONENT = "form-input";
 
 const FormInput = ({
   className,
-  id,
   label, 
   name, 
   onChange, 
@@ -16,7 +15,6 @@ const FormInput = ({
         <input
           className={`${COMPONENT}__field`} 
           type={type} 
-          id={id} 
           name={name}
           value={value}
           onChange={onChange} 
@@ -28,8 +26,8 @@ const FormInput = ({
             className={`
               ${COMPONENT}__label
               ${value.length > 0 ? "move" : null} 
+              ${className}
             `}
-            htmlFor={id}
           >
             {label}
           </label>

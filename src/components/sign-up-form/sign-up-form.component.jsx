@@ -1,6 +1,10 @@
 import { useState } from "react";
 
-import { createUserDocumentFromAuth, createAuthUserWithEmailAndPassword } from "../../utils/firebase/firebase.utils";
+import { 
+  createUserDocumentFromAuth, 
+  createAuthUserWithEmailAndPassword 
+} from "../../utils/firebase/firebase.utils";
+
 import FormInput  from '../form-input/form-input.component';
 import Button from "../button/button.component";
 
@@ -36,7 +40,8 @@ const SignUpForm = () => {
       await createUserDocumentFromAuth(user, { displayName }); 
       resetFormFields();
     } catch (error) {
-      console.log(error);
+      console.log('error message', error.message);
+      console.log('error code', error.code);
     }
   }; 
 
@@ -50,7 +55,7 @@ const SignUpForm = () => {
       <h2>I do not have an account</h2>
 
       <span className={`${COMPONENT}__message`}>
-        Sign in with your email and password
+        Sign up with your email and password
       </span>
 
       <form 
@@ -58,7 +63,6 @@ const SignUpForm = () => {
         onSubmit={handleSubmit}
       >
         <FormInput
-          id="name"
           label="Display name" 
           name="displayName" 
           onChange={handleChange} 
@@ -67,7 +71,6 @@ const SignUpForm = () => {
         />
 
         <FormInput 
-          id="email"
           label="Email" 
           name="email" 
           onChange={handleChange} 
@@ -76,7 +79,6 @@ const SignUpForm = () => {
         />
 
         <FormInput 
-          id="password"
           label="Password" 
           name="password" 
           onChange={handleChange} 
@@ -85,7 +87,6 @@ const SignUpForm = () => {
         />
 
         <FormInput 
-          id="confirm-password"
           label="Confirm password" 
           name="confirmPassword" 
           onChange={handleChange} 

@@ -22,6 +22,7 @@ const ProductCard = ({product}) => {
 
       <Button 
         className='product-card__button' 
+        type='base'
         onClick={addProductToCart}
       >
         Add to cart
