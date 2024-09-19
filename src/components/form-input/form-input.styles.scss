@@ -18,6 +18,7 @@ $input-focus-color: black;
     font-weight: normal;
     position: absolute;
     left: 5px; 
+    transition: 0.3s ease all;
 
     &.move {
       @include moveLabel();

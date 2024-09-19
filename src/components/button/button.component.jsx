@@ -1,7 +1,15 @@
-const Button = ({className, children, ...rest}) => {
+/* There are 3 types of buttons: default, inverted and google-sign-in */
+
+import './button.styles.scss';
+
+const Button = ({className, buttonType, children, ...rest}) => {
   return (
 	  <button 
-      className={className} 
+      className={`
+        button 
+        button--${buttonType} 
+        ${className}
+      `}
       {...rest}
     >
       {children}
