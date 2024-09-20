@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 
 import {
   signInUserWithEmailAndPassword, 
   createUserDocumentFromAuth, 
   signInWithGooglePopup,
-} from "../../utils/firebase/firebase.utils";
+} from '../../utils/firebase/firebase.utils';
 
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
+
+import { UserContext } from "../../contexts/user.context";
 
 import "./sign-in-form.styles.scss";
 
@@ -22,20 +24,34 @@ const SignInForm = () => {
   const [ formFields, setFormFields] = useState(initialFormFields);
   const { email, password } = formFields;
 
+  // set the currentUser using the context 
+  const { setCurrentUser } = useContext(UserContext);
+
   const resetFormFields = () => {
     setFormFields(initialFormFields);
   };
+
+  const logGoogleUser = async () => {
+    const { user } = await signInWithGooglePopup();
+    createUserDocumentFromAuth(user); 
+  }  
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      await signInUserWithEmailAndPassword(email, password);
+      const { user } = await signInUserWithEmailAndPassword(email, password);
+      setCurrentUser(user);
       resetFormFields();
-    } catch (error) { 
-      console.log(error);
-    } 
-      
+    } catch (error) {
+      switch (error.code) {
+        case "auth/invalid-credential":
+          alert("incorrect password for email");
+          break;
+        default:
+          console.log(error);
+      } 
+    }     
   };
 
   const handleChange = (event) => {
@@ -43,10 +59,7 @@ const SignInForm = () => {
     setFormFields({...formFields, [name]: value});
   }
 
-  const logGoogleUser = async () => {
-    const { user } = await signInWithGooglePopup();
-    createUserDocumentFromAuth(user); 
-  }  
+
 
   return (
     <div className={`${COMPONENT}`}>
@@ -87,6 +100,7 @@ const SignInForm = () => {
           <Button 
             onClick={logGoogleUser}
             buttonType="google-sign-in"
+            type="button"
           >
             Google Sign In
           </Button>
