@@ -5,13 +5,16 @@ import {
   signInWithPopup, 
   GoogleAuthProvider,
   signInWithEmailAndPassword,
-  createUserWithEmailAndPassword, 
+  createUserWithEmailAndPassword,
+  signOut, 
+  onAuthStateChanged, // observable listener
 } from "firebase/auth";
 import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore"; 
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: `${process.env.FIREBASE_API_KEY}`,
+    //apiKey: `${process.env.FIREBASE_API_KEY}`,
+    apiKey: "AIzaSyBFnZjzUopFgAXa2nLNmg8Pv4TW0Gv7ZwM",
     authDomain: "crown-clothing-938ae.firebaseapp.com",
     projectId: "crown-clothing-938ae",
     storageBucket: "crown-clothing-938ae.appspot.com",
@@ -64,3 +67,7 @@ const firebaseConfig = {
     if (!email || !password) return;
     return await signInWithEmailAndPassword(auth, email, password);
   };
+
+  export const signOutUser = async () => await signOut(auth);
+
+  export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback);
