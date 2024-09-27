@@ -3,7 +3,6 @@ import { createContext, useState, useEffect } from "react";
 import { 
   createUserDocumentFromAuth, 
   onAuthStateChangedListener, 
-  signOutUser 
 } from "../utils/firebase/firebase.utils";
 
 // it stores the user data we want to access 

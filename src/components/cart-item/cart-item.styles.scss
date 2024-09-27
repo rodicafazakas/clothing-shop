@@ -1,0 +1,16 @@
+.cart-item  {
+  display: flex;
+  height: 80px;
+  column-gap: 20px;
+
+  &__image {
+    width: 30%;
+    height: 80px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}

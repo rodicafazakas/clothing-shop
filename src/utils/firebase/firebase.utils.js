@@ -13,8 +13,7 @@ import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    //apiKey: `${process.env.FIREBASE_API_KEY}`,
-    apiKey: "AIzaSyBFnZjzUopFgAXa2nLNmg8Pv4TW0Gv7ZwM",
+    apiKey: `${process.env.REACT_APP_FIREBASE_API_KEY}`,
     authDomain: "crown-clothing-938ae.firebaseapp.com",
     projectId: "crown-clothing-938ae",
     storageBucket: "crown-clothing-938ae.appspot.com",
