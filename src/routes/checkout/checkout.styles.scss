@@ -1,0 +1,29 @@
+.checkout {
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid darkgrey;
+  }
+
+  &__block {
+    text-transform: capitalize;
+    width: 23%;
+
+    &:last-child {
+      width: 8%;
+    }
+  }
+
+  &__items {
+    margin-bottom: 30px;
+  }
+
+  &__total {
+    font-size: 36px;
+    margin-left: auto;
+  }
+}
