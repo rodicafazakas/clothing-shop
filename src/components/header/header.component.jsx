@@ -5,11 +5,15 @@ import { CartContext } from '../../contexts/cart.context';
 import { Link } from 'react-router-dom';
 
 import { ReactComponent as CrwnLogo } from '../../assets/crown.svg';
+import { ReactComponent as MenuBurger} from "../../assets/menu-svgrepo-com.svg";
+import Menu from './menu/menu.component';
 import CartIcon from '../cart-icon/cart-icon.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 import { signOutUser } from '../../utils/firebase/firebase.utils';
 
 import './header.styles.scss';
+import { MenuContext } from '../../contexts/menu.context';
+
 
 const COMPONENT = "header";
 
@@ -17,18 +21,25 @@ const Header = () => {
   // using Context
   const { currentUser} = useContext(UserContext);
   const { isCartOpen } = useContext(CartContext);
+  const { isMenuOpen, setIsMenuOpen } = useContext(MenuContext);
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  console.log(isMenuOpen);
 
   return (
     <nav className={COMPONENT}>
-      <Link 
-        className={`
-          ${COMPONENT}__link 
-          ${COMPONENT}__logo
-        `} 
-        to='/'
+      <aside
+        className={`${COMPONENT}_sidenav`}
       >
+        { !isMenuOpen && <MenuBurger className={`${COMPONENT}__burger`} onClick={toggleMenu} /> }
+        { isMenuOpen && <Menu className="visible"/> }
+      </aside>
+
+      <Link className={`${COMPONENT}__link ${COMPONENT}__logo`} to='/'>
         <CrwnLogo />
       </Link>
+
       <ul className={`${COMPONENT}__list`}>
         <li className={`${COMPONENT}__item`}>
           <Link className={`${COMPONENT}__link`} to='/shop'>SHOP</Link>
