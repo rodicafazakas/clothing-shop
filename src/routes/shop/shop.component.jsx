@@ -1,18 +1,18 @@
 import { useContext } from "react";
-import { ProductsContext } from "../../contexts/products.context";
+import { CategoriesContext } from "../../contexts/categories.context";
 
 // import { useParams } from "react-router-dom";
 // import { useSelector } from "react-redux";
 // import { useState, useEffect } from "react";
 
-import ProductCard from "../../components/product-card/product-card.component";
 //import { selectCategoriesMap } from "../../redux/selectors/categorySelector";
+
+import CategoryPreview from "../../components/category-preview/category-preview.component";
 
 import './shop.styles.scss';
 
-
 const Shop = () => { 
-  const { products } = useContext(ProductsContext);
+  const { categoriesMap } = useContext(CategoriesContext);
   // const { products } = useSelector( store => store.products) 
   
   //const {category} = useParams();
@@ -24,13 +24,20 @@ const Shop = () => {
   // }, [category, categoriesMap]);
 
   return (
-    <div className="products-container">
-      {products?.map(product => (
-        <ProductCard 
-          key={product.id} 
-          product={product} 
-        />
-      ))}
+    <div className="shop">
+    {
+      Object.keys(categoriesMap).map( title => {
+        const products = categoriesMap[title];
+        
+        return (
+          <CategoryPreview 
+            key={title} 
+            title={title} 
+            products={products} 
+          />
+        )
+      })
+    }
     </div>
   ) 
 };

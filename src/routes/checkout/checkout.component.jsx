@@ -13,8 +13,6 @@ const Checkout = () => {
     total + cartItem.price * cartItem.quantity
   , 0);
 
-  console.log(cartItems);
-
   return (
     <div className={COMPONENT}>
       <div className={`${COMPONENT}__header`}>
