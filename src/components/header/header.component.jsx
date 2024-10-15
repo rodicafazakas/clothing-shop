@@ -4,7 +4,6 @@ import { CartContext } from '../../contexts/cart.context';
 
 import { Link } from 'react-router-dom';
 
-import { ReactComponent as CrwnLogo } from '../../assets/crown.svg';
 import { ReactComponent as MenuBurger} from "../../assets/menu-svgrepo-com.svg";
 import Menu from './menu/menu.component';
 import CartIcon from '../cart-icon/cart-icon.component';
@@ -33,9 +32,13 @@ const Header = () => {
         { isMenuOpen && <Menu className="visible"/> }
       </aside>
 
-      <Link className={`${COMPONENT}__link ${COMPONENT}__logo`} to='/'>
-        <CrwnLogo />
-      </Link>
+      <div className={`${COMPONENT}__logo-main`}>
+        <Link className={`${COMPONENT}__link`} to='/'>
+          <span className={`${COMPONENT}__company`}>
+            <span className={`${COMPONENT}__company-first`}>IN</span> FASHION
+          </span>
+        </Link>
+      </div>
 
       <ul className={`${COMPONENT}__list`}>
         <li className={`${COMPONENT}__item`}>

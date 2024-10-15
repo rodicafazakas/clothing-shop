@@ -15,9 +15,14 @@
     cursor: pointer;
   }
 
-  &__logo {
-    width: 50px;
-    cursor: pointer;
+  &__logo-main {
+    font-size: 30px;
+    display: flex;
+    column-gap: 13px;
+  }
+
+  &__company-first {
+    color: blue;
   }
 
   &__list {

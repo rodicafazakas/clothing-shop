@@ -1,1 +1,1 @@
-This is an E-commerce app with Firebase.
+This is an E-commerce app with Firebase. Check it at https://infashion.netlify.app/ 
