@@ -4,8 +4,10 @@
   row-gap: 30px;
 
   &__title {
+    color: black;
     font-size: 28px;
     text-transform: uppercase;
+    text-decoration: none;
     cursor: pointer;
   }
 

@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 
 import { MenuContext } from '../../../contexts/menu.context';
 
@@ -22,11 +23,11 @@ const Menu = ({className}) => {
       </button>
 
       <ul className={`${COMPONENT}__list`}>
-        <li className={`${COMPONENT}__item`}>Hats</li>
-        <li className={`${COMPONENT}__item`}>Jackets</li>
-        <li className={`${COMPONENT}__item`}>Sneakers</li>
-        <li className={`${COMPONENT}__item`}>Women</li>
-        <li className={`${COMPONENT}__item`}>Men</li>
+        <Link className={`${COMPONENT}__item`} to="/shop/hats"> Hats </Link>
+        <Link className={`${COMPONENT}__item`} to="/shop/jackets"> Jackets </Link>
+        <Link className={`${COMPONENT}__item`} to="/shop/sneakers"> Sneakers</Link>
+        <Link className={`${COMPONENT}__item`} to="/shop/women"> Women </Link>
+        <Link className={`${COMPONENT}__item`} to="/shop/jackets"> Men </Link>
       </ul>
     </nav>
   )    

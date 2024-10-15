@@ -1,6 +1,7 @@
 // To populate the database with the products data
 // -----------------------------------------------
 // import SHOP_DATA from '../shop-data.js';
+// import { addCollectionAndDocuments } from "../utils/firebase/firebase.utils.js";
 // -----------------------------------------------
 // And then in the ProductsProvider
 // -----------------------------------------------

@@ -1,4 +1,4 @@
-import { unstable_useViewTransitionState, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
 
 import { CategoriesContext } from "../../contexts/categories.context";
@@ -19,13 +19,17 @@ const Category = () => {
 
   return (
     <div className="category">
-      {products?.map(product => (
-        <ProductCard 
-          key={product.id} 
-          product={product} 
-        />
-        ))
-      }
+      <h1 className="category__title">{category}</h1>
+
+      <div className="category__products">
+        {products?.map(product => (
+          <ProductCard 
+            key={product.id} 
+            product={product} 
+          />
+          ))
+        }
+      </div>
     </div>
   )
 };

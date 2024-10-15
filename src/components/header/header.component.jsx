@@ -10,10 +10,9 @@ import Menu from './menu/menu.component';
 import CartIcon from '../cart-icon/cart-icon.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 import { signOutUser } from '../../utils/firebase/firebase.utils';
-
-import './header.styles.scss';
 import { MenuContext } from '../../contexts/menu.context';
 
+import './header.styles.scss';
 
 const COMPONENT = "header";
 
@@ -25,12 +24,10 @@ const Header = () => {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-  console.log(isMenuOpen);
-
   return (
     <nav className={COMPONENT}>
       <aside
-        className={`${COMPONENT}_sidenav`}
+        className={`${COMPONENT}__sidenav`}
       >
         { !isMenuOpen && <MenuBurger className={`${COMPONENT}__burger`} onClick={toggleMenu} /> }
         { isMenuOpen && <Menu className="visible"/> }
