@@ -1,3 +1,5 @@
+@import "../../styles/variables";
+
 .header {
   height: 70px;
   display: flex;
@@ -22,7 +24,7 @@
   }
 
   &__company-first {
-    color: blue;
+    color: $color-primary;
   }
 
   &__list {

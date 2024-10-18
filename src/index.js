@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-//import { Provider } from 'react-redux';
+import { Provider } from 'react-redux';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { MenuProvider } from './contexts/menu.context';
-import { UserProvider } from './contexts/user.context';
+// import { UserProvider } from './contexts/user.context';
 import { CategoriesProvider } from './contexts/categories.context';
 import { CartProvider } from './contexts/cart.context';
-//import store from './redux/store/store';
+import store from './store/store';
 
 import './index.scss';
 
@@ -17,19 +17,19 @@ import './index.scss';
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <Provider store={store}> */}
+    <Provider store={store}>
       <BrowserRouter>
         <MenuProvider>
-          <UserProvider>
+          {/* <UserProvider> */}
             <CategoriesProvider>
-              <CartProvider> 
+              <CartProvider>
                 <App /> 
               </CartProvider>
             </CategoriesProvider>
-          </UserProvider>
-        </MenuProvider> 
+          {/* </UserProvider> */}
+        </MenuProvider>  
       </BrowserRouter>
-    {/* </Provider> */}
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

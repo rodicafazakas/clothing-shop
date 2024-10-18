@@ -2,6 +2,8 @@ import { useContext } from 'react';
 import { UserContext } from '../../contexts/user.context';
 import { CartContext } from '../../contexts/cart.context';
 
+import { useSelector } from 'react-redux';
+
 import { Link } from 'react-router-dom';
 
 import { ReactComponent as MenuBurger} from "../../assets/menu-svgrepo-com.svg";
@@ -17,12 +19,14 @@ const COMPONENT = "header";
 
 const Header = () => {
   // using Context
-  const { currentUser} = useContext(UserContext);
+  // const { currentUser} = useContext(UserContext);
   const { isCartOpen } = useContext(CartContext);
   const { isMenuOpen, setIsMenuOpen } = useContext(MenuContext);
-
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
+  // using Redux
+  const currentUser = useSelector(state => state.user.currentUser); 
+  
   return (
     <nav className={COMPONENT}>
       <aside
