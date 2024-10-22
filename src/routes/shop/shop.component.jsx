@@ -1,27 +1,34 @@
-import { useContext } from "react";
-import { CategoriesContext } from "../../contexts/categories.context";
+import { useEffect } from "react";
+// import { useContext, useEffect } from "react";
+// import { CategoriesContext } from "../../contexts/categories.context";
 
-// import { useParams } from "react-router-dom";
-// import { useSelector } from "react-redux";
-// import { useState, useEffect } from "react";
-
-//import { selectCategoriesMap } from "../../redux/selectors/categorySelector";
+import { useDispatch, useSelector } from "react-redux";
+import { getCategoriesAndDocuments } from "../../utils/firebase/firebase.utils";
+import { setCategories } from "../../store/categories/category.action";
+import { selectCategoriesMap } from "../../store/categories/category.selector";
 
 import CategoryPreview from "../../components/category-preview/category-preview.component";
 
 import './shop.styles.scss';
 
 const Shop = () => { 
-  const { categoriesMap } = useContext(CategoriesContext);
-  // const { products } = useSelector( store => store.products) 
-  
-  //const {category} = useParams();
-  //const categoriesMap = useSelector(selectCategoriesMap);
-  //const [products, setProducts] = useState(categoriesMap[category]);
 
-  // useEffect(() => {
-  //   setProducts(categoriesMap[category])
-  // }, [category, categoriesMap]);
+  // using Context
+  // const { categoriesMap } = useContext(CategoriesContext);
+
+  // using Redux
+  // fetching the categories data
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const getCategories = async () => {
+      const categoriesArray = await getCategoriesAndDocuments('categories');
+      dispatch(setCategories(categoriesArray));
+    };
+
+    getCategories();
+  }, [dispatch]);
+
+  const categoriesMap = useSelector(selectCategoriesMap);
 
   return (
     <div className="shop">

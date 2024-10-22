@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { UserContext } from '../../contexts/user.context';
+// import { UserContext } from '../../contexts/user.context';
 import { CartContext } from '../../contexts/cart.context';
 
 import { useSelector } from 'react-redux';

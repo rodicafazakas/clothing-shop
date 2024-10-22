@@ -21,11 +21,11 @@ ReactDOM.render(
       <BrowserRouter>
         <MenuProvider>
           {/* <UserProvider> */}
-            <CategoriesProvider>
+            {/* <CategoriesProvider> */}
               <CartProvider>
                 <App /> 
               </CartProvider>
-            </CategoriesProvider>
+            {/* </CategoriesProvider> */}
           {/* </UserProvider> */}
         </MenuProvider>  
       </BrowserRouter>
