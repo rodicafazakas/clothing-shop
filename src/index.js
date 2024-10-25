@@ -7,7 +7,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { MenuProvider } from './contexts/menu.context';
 // import { UserProvider } from './contexts/user.context';
-import { CategoriesProvider } from './contexts/categories.context';
+// import { CategoriesProvider } from './contexts/categories.context';
 import { CartProvider } from './contexts/cart.context';
 import store from './store/store';
 
@@ -22,9 +22,9 @@ ReactDOM.render(
         <MenuProvider>
           {/* <UserProvider> */}
             {/* <CategoriesProvider> */}
-              <CartProvider>
+              {/* <CartProvider> */}
                 <App /> 
-              </CartProvider>
+              {/* </CartProvider> */}
             {/* </CategoriesProvider> */}
           {/* </UserProvider> */}
         </MenuProvider>  

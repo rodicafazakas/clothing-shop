@@ -1,6 +1,9 @@
-import { useContext } from "react";
+// import { useContext } from "react";
+// import { CartContext } from "../../contexts/cart.context";
 
-import { CartContext } from "../../contexts/cart.context";
+import { useSelector, useDispatch } from "react-redux";
+import { addItemToCart, removeItemFromCart, clearItemFromCart } from "../../store/cart/cart.action";
+import { selectCartItems } from "../../store/cart/cart.selector";
 
 import "./checkout-item.styles.scss";
 
@@ -9,7 +12,18 @@ const COMPONENT = "checkout-item";
 const CheckoutItem = ({cartItem}) => {
   const {id, imageUrl, name, price, quantity} = cartItem;
 
-  const {addItemToCart, removeItemFromCart, clearItemFromCart} = useContext(CartContext);
+  // using Context
+  // const {addItemToCart, removeItemFromCart, clearItemFromCart} = useContext(CartContext);
+  // const removeItemHandler = () => removeItemFromCart(cartItem);
+  // const addItemHandler = () => addItemToCart(cartItem);
+  // const clearItemHandler = () => clearItemFromCart(cartItem);
+
+  // using Redux 
+  const dispatch = useDispatch();
+  const cartItems = useSelector(selectCartItems);
+  const removeItemHandler = () => dispatch(removeItemFromCart(cartItems, cartItem));
+  const addItemHandler = () => dispatch(addItemToCart(cartItems, cartItem));
+  const clearItemHandler = () => dispatch(clearItemFromCart(cartItems, cartItem));
 
   return (
     <div 
@@ -30,14 +44,14 @@ const CheckoutItem = ({cartItem}) => {
       <div className={`${COMPONENT}__block`}>
         <span 
           className={`${COMPONENT}__arrow`} 
-          onClick={() => removeItemFromCart(cartItem)}
+          onClick={removeItemHandler}
         >
           &#10094;
         </span>
         <span className={`${COMPONENT}__quantity`}>{quantity}</span> 
         <span 
           className={`${COMPONENT}__arrow`} 
-          onClick={() => addItemToCart(cartItem)}
+          onClick={addItemHandler}
         >
           &#10095;
         </span>
@@ -47,7 +61,7 @@ const CheckoutItem = ({cartItem}) => {
       
       <div 
         className={`${COMPONENT}__block`}
-        onClick={() => clearItemFromCart(cartItem)}
+        onClick={clearItemHandler}
       >
         &#10005;
       </div>

@@ -1,17 +1,25 @@
-import { useContext } from "react";
+// import { useContext } from "react";
+// import { CartContext } from "../../contexts/cart.context";
 
-import { CartContext } from "../../contexts/cart.context";
+import { useSelector } from "react-redux";
+import { selectCartItems, selectCartTotal } from "../../store/cart/cart.selector";
+
+import CheckoutItem from "../../components/checkout-item/checkout-item.component";
 
 import "./checkout.styles.scss";
-import CheckoutItem from "../../components/checkout-item/checkout-item.component";
 
 const COMPONENT = "checkout";
 
 const Checkout = () => {
-  const { cartItems } = useContext(CartContext);
-  const totalCost = cartItems.reduce((total, cartItem) =>
-    total + cartItem.price * cartItem.quantity
-  , 0);
+  // using Context
+  // const { cartItems } = useContext(CartContext);
+  // const cartTotal = cartItems.reduce((total, cartItem) =>
+  //   total + cartItem.price * cartItem.quantity
+  // , 0);
+
+  // using Redux
+  const cartItems = useSelector(selectCartItems);
+  const cartTotal = useSelector(selectCartTotal);
 
   return (
     <div className={COMPONENT}>
@@ -41,7 +49,7 @@ const Checkout = () => {
         )}
       </div>
       <div className={`${COMPONENT}__total`}>
-        TOTAL: ${totalCost}
+        TOTAL: ${cartTotal}
       </div>
       
     </div>
