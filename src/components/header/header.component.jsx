@@ -31,44 +31,46 @@ const Header = () => {
   
   return (
     <nav className={COMPONENT}>
-      <aside
-        className={`${COMPONENT}__sidenav`}
-      >
-        { !isMenuOpen && <MenuBurger className={`${COMPONENT}__burger`} onClick={toggleMenu} /> }
-        { isMenuOpen && <Menu className="visible"/> }
-      </aside>
+      <div className={`${COMPONENT}__container`}>
+        <aside
+          className={`${COMPONENT}__sidenav`}
+        >
+          { !isMenuOpen && <MenuBurger className={`${COMPONENT}__burger`} onClick={toggleMenu} /> }
+          { isMenuOpen && <Menu className="visible"/> }
+        </aside>
 
-      <div className={`${COMPONENT}__logo-main`}>
-        <Link className={`${COMPONENT}__link`} to='/'>
-          <span className={`${COMPONENT}__company`}>
-            <span className={`${COMPONENT}__company-first`}>IN</span> FASHION
-          </span>
-        </Link>
-      </div>
-
-      <ul className={`${COMPONENT}__list`}>
-        <li className={`${COMPONENT}__item`}>
-          <Link className={`${COMPONENT}__link`} to='/shop'>SHOP</Link>
-        </li> 
-        { currentUser ? (
-          <li className={`${COMPONENT}__item`}>
-            <span 
-              className={`${COMPONENT}__link`} 
-              onClick={signOutUser}
-            >
-              SIGN OUT
+        <div className={`${COMPONENT}__logo-main`}>
+          <Link className={`${COMPONENT}__link`} to='/'>
+            <span className={`${COMPONENT}__company`}>
+              <span className={`${COMPONENT}__company-first`}>IN</span> FASHION
             </span>
-          </li>   
-        ) : (        
+          </Link>
+        </div>
+
+        <ul className={`${COMPONENT}__list`}>
           <li className={`${COMPONENT}__item`}>
-            <Link className={`${COMPONENT}__link`} to='/auth'>SIGN IN</Link>
+            <Link className={`${COMPONENT}__link`} to='/shop'>SHOP</Link>
+          </li> 
+          { currentUser ? (
+            <li className={`${COMPONENT}__item`}>
+              <span 
+                className={`${COMPONENT}__link`} 
+                onClick={signOutUser}
+              >
+                SIGN OUT
+              </span>
+            </li>   
+          ) : (        
+            <li className={`${COMPONENT}__item`}>
+              <Link className={`${COMPONENT}__link`} to='/auth'>SIGN IN</Link>
+            </li>
+          )} 
+          <li className={`${COMPONENT}__item`}>  
+            <CartIcon />
           </li>
-        )} 
-        <li className={`${COMPONENT}__item`}>  
-           <CartIcon />
-        </li>
-      </ul>
-      { isCartOpen && <CartDropdown /> }
+        </ul>
+        { isCartOpen && <CartDropdown /> }
+      </div>
     </nav>
   )
 }

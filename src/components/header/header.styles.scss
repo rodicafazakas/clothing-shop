@@ -2,10 +2,23 @@
 
 .header {
   height: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  z-index: 1;
+  position: sticky;
+  top: 0;
+  margin-right: -150px;
+  margin-left: -150px;
+  border-block-end: 0.5px solid $color-primary;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
   margin-bottom: 50px; // this could be an utility class
+  background-color: white;
+
+  &__container {
+    margin-right: 150px;
+    margin-left: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
   &__sidenav {
     position: relative;

@@ -19,7 +19,6 @@ const CartDropdown = () => {
 
   // using Redux
   const cartItems = useSelector(selectCartItems);
-  console.log('cart items', cartItems);
 
   let navigate = useNavigate();
   const goToCheckoutHandler = () => {
