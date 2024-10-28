@@ -1,23 +1,31 @@
-import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+// import { useContext } from 'react';
+// import { MenuContext } from '../../../contexts/menu.context';
 
-import { MenuContext } from '../../../contexts/menu.context';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleMenu } from '../../../store/menu/menu.action';
+import { selectIsMenuOpen } from '../../../store/menu/menu.selector';
 
 import './menu.styles.scss';
 
 const COMPONENT = "menu";
 
 const Menu = ({className}) => {
-  const { isMenuOpen, setIsMenuOpen } = useContext(MenuContext);
+  // using Context
+  // const { isMenuOpen, setIsMenuOpen } = useContext(MenuContext);
+  // const toggleMenuHandler = () => setIsMenuOpen(!isMenuOpen);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  // using Redux
+  const dispatch = useDispatch();
+  const isMenuOpen = useSelector(selectIsMenuOpen);
+  const toggleMenuHandler = () => dispatch(toggleMenu(!isMenuOpen));
 
   return (
     <nav className={`${COMPONENT} ${COMPONENT}--${className}`}>
       <button 
         className={`${COMPONENT}__button`} 
         aria-label="Close Menu"
-        onClick={toggleMenu}
+        onClick={toggleMenuHandler}
       > 
         &#10005; 
       </button>
