@@ -12,13 +12,6 @@ const COMPONENT = "checkout-item";
 const CheckoutItem = ({cartItem}) => {
   const {id, imageUrl, name, price, quantity} = cartItem;
 
-  // using Context
-  // const {addItemToCart, removeItemFromCart, clearItemFromCart} = useContext(CartContext);
-  // const removeItemHandler = () => removeItemFromCart(cartItem);
-  // const addItemHandler = () => addItemToCart(cartItem);
-  // const clearItemHandler = () => clearItemFromCart(cartItem);
-
-  // using Redux 
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
   const removeItemHandler = () => dispatch(removeItemFromCart(cartItems, cartItem));

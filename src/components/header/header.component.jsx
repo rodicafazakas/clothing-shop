@@ -1,9 +1,7 @@
-// import { useContext } from 'react';
-// import { UserContext } from '../../contexts/user.context';
-// import { CartContext } from '../../contexts/cart.context';
-
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCartIsCartOpen } from '../../store/cart/cart.selector';
+import { selectIsMenuOpen } from '../../store/menu/menu.selector';
+import { toggleMenu } from '../../store/menu/menu.action';
 
 import { Link } from 'react-router-dom';
 
@@ -12,22 +10,13 @@ import Menu from './menu/menu.component';
 import CartIcon from '../cart-icon/cart-icon.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 import { signOutUser } from '../../utils/firebase/firebase.utils';
-// import { MenuContext } from '../../contexts/menu.context';
 
 import './header.styles.scss';
-import { selectIsMenuOpen } from '../../store/menu/menu.selector';
-import { toggleMenu } from '../../store/menu/menu.action';
+
 
 const COMPONENT = "header";
 
 const Header = () => {
-  // using Context
-  // const { currentUser} = useContext(UserContext);
-  // const { isCartOpen } = useContext(CartContext);
-  // const { isMenuOpen, setIsMenuOpen } = useContext(MenuContext);
-  // const toggleMenuHandler = () => setIsMenuOpen(!isMenuOpen);
-
-  // using Redux
   const dispatch = useDispatch();
   const currentUser = useSelector(state => state.user.currentUser); 
   const isCartOpen = useSelector(selectCartIsCartOpen);
