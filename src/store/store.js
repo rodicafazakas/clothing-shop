@@ -8,13 +8,19 @@ import rootReducer from './rootReducer';
 const persistConfig = {
   key: 'root',
   storage, 
-  blacklist: ['user'], // because user value is coming from the auth state listener
+  whitelist: ['cart'], // because user value is coming from the auth state listener
 };
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-const middlewares = [logger];
+const middlewares = [process.env.NODE_ENV !== 'production' && logger].filter(Boolean);
 
-const composedEnhancers = compose(applyMiddleware(...middlewares));
+const composeEnhancer = (
+  process.env.NODE_ENV !== 'production' && 
+  window && 
+  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+) || compose;
+
+const composedEnhancers = composeEnhancer(applyMiddleware(...middlewares));
 
 export const store = createStore(
     persistedReducer,

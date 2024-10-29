@@ -6,6 +6,7 @@ import { selectCategoriesMap } from "../../store/categories/category.selector";
 import ProductCard from "../../components/product-card/product-card.component";
 
 import "./category.styles.scss";
+import Spinner from "../../components/spinner/spinner.component";
 
 const Category = () => {
   const { category } = useParams();
@@ -21,15 +22,18 @@ const Category = () => {
     <div className="category">
       <h1 className="category__title">{category}</h1>
 
-      <div className="category__products">
-        {products && products.map(product => (
-          <ProductCard 
-            key={product.id} 
-            product={product} 
-          />
-          ))
-        }
-      </div>
+      {products ? (
+        <div className="category__products">
+          {products.map(product => (
+            <ProductCard 
+              key={product.id} 
+              product={product} 
+            />
+            ))}
+        </div>
+      ) : (
+        <Spinner />
+      )}
     </div>
   )
 };
