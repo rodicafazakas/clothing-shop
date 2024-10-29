@@ -1,31 +1,28 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCategoriesAndDocuments } from "../../utils/firebase/firebase.utils";
-import { setCategories } from "../../store/categories/category.action";
-import { selectCategoriesMap } from "../../store/categories/category.selector";
+import { fetchCategoriesAsync } from "../../store/categories/category.action";
+import { selectCategoriesIsLoading, selectCategoriesMap } from "../../store/categories/category.selector";
 
 import CategoryPreview from "../../components/category-preview/category-preview.component";
-
-import './shop.styles.scss';
 import Spinner from "../../components/spinner/spinner.component";
 
-const Shop = () => { 
-  // fetching the categories data
-  const dispatch = useDispatch();
-  useEffect(() => {
-    const getCategories = async () => {
-      const categoriesArray = await getCategoriesAndDocuments('categories');
-      dispatch(setCategories(categoriesArray));
-    };
+import './shop.styles.scss';
 
-    getCategories();
-  }, [dispatch]);
+const Shop = () => { 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCategoriesAsync());
+  }, []);
 
   const categoriesMap = useSelector(selectCategoriesMap);
+  const isLoading = useSelector(selectCategoriesIsLoading);
 
   return (
     <div className="shop"> 
-    { categoriesMap ? (
+    { isLoading ? (
+        <Spinner />
+      ) : (
         Object.keys(categoriesMap).map( title => {
           const products = categoriesMap[title];
           
@@ -37,8 +34,6 @@ const Shop = () => {
             />
           )
         })
-      ) : (
-        <Spinner />
       )
     }
     </div>

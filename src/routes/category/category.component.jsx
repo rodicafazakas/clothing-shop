@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { selectCategoriesMap } from "../../store/categories/category.selector";
+import { selectCategoriesIsLoading, selectCategoriesMap } from "../../store/categories/category.selector";
 
 import ProductCard from "../../components/product-card/product-card.component";
 
@@ -13,6 +13,7 @@ const Category = () => {
   const [ products, setProducts ] = useState([]);
 
   const categoriesMap = useSelector( selectCategoriesMap );
+  const isLoading = useSelector(selectCategoriesIsLoading);
 
   useEffect(() => {
     setProducts(categoriesMap[category])
@@ -22,18 +23,18 @@ const Category = () => {
     <div className="category">
       <h1 className="category__title">{category}</h1>
 
-      {products ? (
-        <div className="category__products">
-          {products.map(product => (
-            <ProductCard 
-              key={product.id} 
-              product={product} 
-            />
-            ))}
-        </div>
-      ) : (
-        <Spinner />
-      )}
+      {isLoading ? (
+          <Spinner />
+        ) : (
+          <div className="category__products">
+            {products.map(product => (
+              <ProductCard 
+                key={product.id} 
+                product={product} 
+              />
+              ))}
+          </div>
+        )}
     </div>
   )
 };
