@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCategoriesAsync } from "../../store/categories/category.action";
+import { fetchCategoriesStart } from "../../store/categories/category.action";
 import { selectCategoriesIsLoading, selectCategoriesMap } from "../../store/categories/category.selector";
 
 import CategoryPreview from "../../components/category-preview/category-preview.component";
@@ -12,7 +12,7 @@ const Shop = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchCategoriesAsync());
+    dispatch(fetchCategoriesStart());
   }, []);
 
   const categoriesMap = useSelector(selectCategoriesMap);

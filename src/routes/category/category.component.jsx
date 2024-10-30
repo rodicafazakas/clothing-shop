@@ -12,7 +12,7 @@ const Category = () => {
   const { category } = useParams();
   const [ products, setProducts ] = useState([]);
 
-  const categoriesMap = useSelector( selectCategoriesMap );
+  const categoriesMap = useSelector(selectCategoriesMap);
   const isLoading = useSelector(selectCategoriesIsLoading);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const Category = () => {
           <Spinner />
         ) : (
           <div className="category__products">
-            {products.map(product => (
+            {products?.map(product => (
               <ProductCard 
                 key={product.id} 
                 product={product} 

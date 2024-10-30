@@ -27,7 +27,7 @@ const Menu = ({className}) => {
         <Link className={`${COMPONENT}__item`} to="/shop/jackets"> Jackets </Link>
         <Link className={`${COMPONENT}__item`} to="/shop/sneakers"> Sneakers</Link>
         <Link className={`${COMPONENT}__item`} to="/shop/women"> Women </Link>
-        <Link className={`${COMPONENT}__item`} to="/shop/jackets"> Men </Link>
+        <Link className={`${COMPONENT}__item`} to="/shop/men"> Men </Link>
       </ul>
     </nav>
   )    
