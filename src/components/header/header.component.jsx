@@ -1,18 +1,18 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+
 import { selectCartIsCartOpen } from '../../store/cart/cart.selector';
 import { selectIsMenuOpen } from '../../store/menu/menu.selector';
 import { toggleMenu } from '../../store/menu/menu.action';
-
-import { Link } from 'react-router-dom';
+import { signOutStart } from '../../store/user/user.action';
 
 import { ReactComponent as MenuBurger} from "../../assets/menu-svgrepo-com.svg";
 import Menu from './menu/menu.component';
 import CartIcon from '../cart-icon/cart-icon.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
-import { signOutUser } from '../../utils/firebase/firebase.utils';
+
 
 import './header.styles.scss';
-
 
 const COMPONENT = "header";
 
@@ -22,6 +22,7 @@ const Header = () => {
   const isCartOpen = useSelector(selectCartIsCartOpen);
   const isMenuOpen = useSelector(selectIsMenuOpen);
   const toggleMenuHandler = () => dispatch(toggleMenu(!isMenuOpen));
+  const signOutUser = () => dispatch(signOutStart());
   
   return (
     <header className={COMPONENT}>

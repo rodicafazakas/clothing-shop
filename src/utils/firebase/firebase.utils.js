@@ -44,7 +44,6 @@ const firebaseConfig = {
   export const db = getFirestore(); 
 
   // user registration and authentification
-
   export const createUserDocumentFromAuth = async (userAuth, additionalInformation = {}) => {
     if (!userAuth) return;
 
@@ -66,6 +65,9 @@ const firebaseConfig = {
         console.log('error creating the error', error.message)
       }
     }
+
+    return userSnapshot;
+    
   };
 
   export const createAuthUserWithEmailAndPassword = async (email, password) => {
@@ -81,6 +83,20 @@ const firebaseConfig = {
   export const signOutUser = async () => await signOut(auth);
 
   export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback);
+
+  export const getCurrentUser = () => {
+    return new Promise((resolve, reject) => {
+      const unsubscribe = onAuthStateChanged(
+        auth,
+        (userAuth) => {
+          unsubscribe();
+          resolve(userAuth);
+        },
+        reject
+      );
+    });
+  };
+
 
   // add collection and documents to the database (Firestore)
   export const addCollectionAndDocuments = async (collecctionKey, objectsToAdd) => {
