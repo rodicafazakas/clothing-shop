@@ -31,16 +31,14 @@ const Header = () => {
           className={`${COMPONENT}__sidenav`}
         >
           { !isMenuOpen && <MenuBurger className={`${COMPONENT}__burger`} onClick={toggleMenuHandler} /> }
-          { isMenuOpen && <Menu className="visible"/> }
+          { isMenuOpen && <Menu /> }
         </aside>
 
-        <div className={`${COMPONENT}__logo-main`}>
+        <h2 className={`${COMPONENT}__logo-main`}>
           <Link className={`${COMPONENT}__link`} to='/'>
-            <span className={`${COMPONENT}__company`}>
-              <span className={`${COMPONENT}__company-first`}>IN</span> FASHION
-            </span>
+            <span className={`${COMPONENT}__company-first`}>IN</span> FASHION
           </Link>
-        </div>
+        </h2>
 
         <ul className={`${COMPONENT}__list`}>
           <li className={`${COMPONENT}__item`}>

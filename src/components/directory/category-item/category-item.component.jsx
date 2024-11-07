@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import './category-item.styles.scss';
 
-const COMPONENT = 'category-container'; 
+const COMPONENT = 'category-item'; 
 
 const CategoryItem = ({category}) => {
   const { title, imageUrl, route} = category; 
@@ -11,7 +11,7 @@ const CategoryItem = ({category}) => {
       <img 
         alt={title}
         src={imageUrl} 
-        className={`${COMPONENT}__image`} 
+        className={`${COMPONENT}__image`}
       />
 
       <div className={`${COMPONENT}__body`}>

@@ -1,4 +1,4 @@
-@import "../../styles/variables";
+@import "../../styles/abstracts/variables";
 
 .header {
   height: 60px;
@@ -9,10 +9,11 @@
   margin-left: -150px;
   border-block-end: 0.5px solid $color-primary;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-  margin-bottom: 30px; // this could be an utility class
+  margin-bottom: 50px; // this could be an utility class
   background-color: white;
 
   &__container {
+    height: 100%;
     margin-right: 150px;
     margin-left: 150px;
     display: flex;
@@ -21,6 +22,7 @@
   }
 
   &__sidenav {
+    min-width: 200px;
     position: relative;
   }
 
@@ -31,7 +33,6 @@
   }
 
   &__logo-main {
-    font-size: 30px;
     display: flex;
     column-gap: 13px;
   }

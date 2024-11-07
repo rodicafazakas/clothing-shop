@@ -1,13 +1,16 @@
 
-.category-container {
+.category-item {
   min-width: 200px;
-  height: 270px;
+  height: 340px;
   border: 1px solid black;
   display: flex;
   align-items: center; // vertically aligned
   justify-content: center; // horizontally aligned
   flex: 1 1 30%; // the last 2 cards equally take up any free space 
   overflow: hidden;
+  border-radius: 12px;
+  border: none;
+  position: relative;
 
   &:hover {
     cursor: pointer;
@@ -31,6 +34,7 @@
     opacity: 0.7;
     position: absolute;
     border: 1px solid black;
+    border-radius: 12px;
 
 
     &:hover {
@@ -48,5 +52,6 @@
   p {
     font-size: 16px;
     font-weight: lighter;
+    color: #4a4a4a;
   }
 }
