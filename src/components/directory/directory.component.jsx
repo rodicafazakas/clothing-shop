@@ -1,6 +1,12 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+
+import { fetchCategoriesStart } from "../../store/categories/category.action";
+
 import CategoryItem from "./category-item/category-item.component";
 
 import './directory.styles.scss';
+
 
 const COMPONENT = "directory";
 
@@ -37,15 +43,23 @@ const categories = [
   }
 ];
 
-const Directory = () => (
-  <div className={COMPONENT}>
-    {categories.map(category => (
-      <CategoryItem 
-        key={category.id} 
-        category={category}
-      />
-    ))}
-  </div>
-);
+const Directory = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCategoriesStart());
+  }, [dispatch]);
+
+  return (
+    <div className={COMPONENT}>
+      {categories?.map(category => (
+        <CategoryItem 
+          key={category.id} 
+          category={category}
+        />
+      ))}
+    </div>
+  )
+};
 
 export default Directory;

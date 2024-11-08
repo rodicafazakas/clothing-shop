@@ -10,10 +10,9 @@ import Spinner from "../../components/spinner/spinner.component";
 
 const Category = () => {
   const { category } = useParams();
-  const [ products, setProducts ] = useState([]);
-
   const categoriesMap = useSelector(selectCategoriesMap);
   const isLoading = useSelector(selectCategoriesIsLoading);
+  const [ products, setProducts ] = useState(categoriesMap[category]);
 
   useEffect(() => {
     setProducts(categoriesMap[category])
