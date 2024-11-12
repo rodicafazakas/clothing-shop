@@ -1,20 +1,20 @@
 .checkout-item {
   display: flex;
   align-items: center;
-  font-size: 20px;
-  padding: 15px 0;
+  font-size: 2rem;
+  padding: 1.5rem 0;
   border-bottom: 1px solid darkgrey;
 
   &__block {
     width: 23%;
 
     &:first-child {
-      padding-right: 15px;
+      padding-right: 1.5rem;
     }
 
     &:last-child {
       width: 8%;
-      padding-left: 15px;
+      padding-left: 1.5rem;
       cursor: pointer;
     }
   }
@@ -24,7 +24,7 @@
   }
 
   &__quantity {
-    margin: 0 10px;
+    margin: 0 1rem;
   }
 
 }

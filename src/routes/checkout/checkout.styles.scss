@@ -5,7 +5,7 @@
   &__header {
     display: flex;
     justify-content: space-between;
-    padding: 10px 0;
+    padding: 1rem 0;
     border-bottom: 1px solid darkgrey;
   }
 
@@ -19,11 +19,11 @@
   }
 
   &__items {
-    margin-bottom: 30px;
+    margin-bottom: 3rem;
   }
 
   &__total {
-    font-size: 36px;
+    font-size: 3.6rem;
     margin-left: auto;
   }
 }

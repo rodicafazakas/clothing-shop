@@ -1,40 +1,40 @@
 @import "../../styles/abstracts/variables";
 
 .header {
-  height: 60px;
+  height: 6rem;
   z-index: 1;
   position: sticky;
   top: 0;
-  margin-right: -150px;
-  margin-left: -150px;
-  border-block-end: 0.5px solid $color-primary;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-  margin-bottom: 50px; // this could be an utility class
+  margin-right: -15rem;
+  margin-left: -15rem;
+  border-block-end: .5px solid $color-primary;
+  box-shadow: 0 .2rem .4rem 0 rgba(0, 0, 0, 0.2);
+  margin-bottom: 5rem; // this could be an utility class
   background-color: white;
 
   &__container {
     height: 100%;
-    margin-right: 150px;
-    margin-left: 150px;
+    margin-right: 15rem;
+    margin-left: 15rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
 
   &__sidenav {
-    min-width: 200px;
+    min-width: 20rem;
     position: relative;
   }
 
   &__burger {
-    width: 50px;
-    height: 50px;
+    width: 5rem;
+    height: 5rem;
     cursor: pointer;
   }
 
   &__logo-main {
     display: flex;
-    column-gap: 13px;
+    column-gap: 1.3rem;
   }
 
   &__company-first {
@@ -45,7 +45,7 @@
     display: flex;
     align-items: center;
     list-style-type: none;
-    column-gap: 15px;
+    column-gap: 1.5rem;
   }
 
   &__link {

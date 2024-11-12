@@ -1,21 +1,21 @@
 .sign-in-form {
-  min-width: 230px;
-  max-width: 370px;
+  min-width: 23rem;
+  max-width: 37rem;
   display: flex;
   flex-direction: column;
-  row-gap: 45px;
+  row-gap: 4.5rem;
   flex: 1 1 50%;
 
   &__inputs {
     display: flex;
     flex-direction: column;
-    row-gap: 45px;
+    row-gap: 4.5rem;
   }
 
   &__buttons-section {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    row-gap: 10px;
+    row-gap: 1rem;
   }
 }

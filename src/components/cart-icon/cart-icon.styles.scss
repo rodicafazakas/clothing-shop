@@ -1,20 +1,20 @@
 .cart-icon {
-  width: 45px;
-  height: 45px;
+  width: 4.5rem;
+  height: 4.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
 
   &__icon {
-    width: 24px;
-    height: 24px;
+    width: 2.4rem;
+    height: 2.4rem;
   }
 
   &__count {
     position: absolute;
-    bottom: 12px;
-    font-size: 10px;
+    bottom: 1.2rem;
+    font-size: 1rem;
     font-weight: bold;
   }
 }

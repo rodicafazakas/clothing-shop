@@ -1,9 +1,9 @@
 .app { 
   margin: 0 auto;
-  padding: 0 30px;
+  padding: 0 3rem;
   overflow: visible;
 
   @media only screen and (min-width: 1024px) {
-    padding: 0 150px;
+    padding: 0 15rem;
   }
 }

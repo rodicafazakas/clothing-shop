@@ -2,8 +2,8 @@ $input-default-color: grey;
 $input-focus-color: black;
 
 @mixin moveLabel {
-  top: -13px;
-  font-size: 12px;;
+  top: -1.3rem;
+  font-size: 1.2rem;
   color: $input-focus-color;
 }
 
@@ -14,11 +14,11 @@ $input-focus-color: black;
 
   &__label {
     color: $input-default-color;
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: normal;
     position: absolute;
-    left: 5px; 
-    transition: 0.3s ease all;
+    left: .5rem; 
+    transition: .3s ease all;
 
     &.move {
       @include moveLabel();
@@ -26,12 +26,12 @@ $input-focus-color: black;
   }
 
   &__field {
-    font-size: 18px;
+    font-size: 1.8rem;
     color: $input-default-color;
     border: none;
-    border-bottom: 1px solid $input-default-color; 
+    border-bottom: .1rem solid $input-default-color; 
     background-color: white;
-    margin: 10px 0;
+    margin: 1rem 0;
 
     &:focus {
       outline: none;
@@ -43,6 +43,6 @@ $input-focus-color: black;
   }
 
   input[type="password"] {
-    letter-spacing: 0.3em;
+    letter-spacing: .3em;
   }
 }

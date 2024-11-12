@@ -1,18 +1,18 @@
 .category {
   display: flex;
   flex-direction: column;
-  row-gap: 40px;
+  row-gap: 4rem;
 
   &__title {
-    font-size: 38px;
+    font-size: 3.8rem;
     text-transform: uppercase;
   }
 
   &__products {  
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    column-gap: 20px;
-    row-gap: 50px;
+    column-gap: 2rem;
+    row-gap: 5rem;
 
     @media only screen and (min-width: 420px) {
         grid-template-columns: repeat(2, 1fr);

@@ -1,11 +1,11 @@
 .cart-item  {
   display: flex;
-  height: 80px;
-  column-gap: 20px;
+  height: 8rem;
+  column-gap: 2rem;
 
   &__image {
     width: 30%;
-    height: 80px;
+    height: 8rem;
   }
 
   &__info {
