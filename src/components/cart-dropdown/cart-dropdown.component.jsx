@@ -29,7 +29,13 @@ const CartDropdown = () => {
           <span className={`${COMPONENT}__empty`}>Your cart is empty.</span>
         )}
       </div>
-      <Button onClick={goToCheckoutHandler}>GO TO CHECKOUT</Button>
+      
+      <Button 
+        onClick={goToCheckoutHandler}
+        buttonType="base"
+      >
+        GO TO CHECKOUT
+      </Button>
     </div>
   )
 };

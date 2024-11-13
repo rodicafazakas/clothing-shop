@@ -1,4 +1,4 @@
-@import "../../styles/abstracts/variables";
+@import "../../styles/globals";
 
 .header {
   height: 6rem;
@@ -44,12 +44,13 @@
   &__list {
     display: flex;
     align-items: center;
-    list-style-type: none;
     column-gap: 1.5rem;
+    list-style-type: none;
   }
 
   &__link {
-    color: black;
+    color: $color-text-dark;
     text-decoration: none;
+    text-transform: uppercase;
   }
 }

@@ -80,6 +80,7 @@ const SignInForm = () => {
         <section className={`${COMPONENT}__buttons-section`}>
           <Button 
             className={`${COMPONENT}__submit`}
+            buttonType="base"
             type="submit"
           >
             SIGN IN

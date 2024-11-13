@@ -5,11 +5,11 @@ import { Routes, Route } from 'react-router-dom';
 import { checkUserSession } from "./store/user/user.action";
 
 import Header from './components/header/header.component';
-import Home from "./routes/home/home.component";
-import Shop from "./routes/shop/shop.component";
-import Category from './routes/category/category.component';
-import Authentication from './routes/authentication/authentication.component';
-import Checkout from './routes/checkout/checkout.component';
+import Home from "./pages/home/home.component";
+import Shop from "./pages/shop/shop.component";
+import Category from './pages/category/category.component';
+import Authentication from './pages/authentication/authentication.component';
+import Checkout from './pages/checkout/checkout.component';
 
 import './App.styles.scss';
 

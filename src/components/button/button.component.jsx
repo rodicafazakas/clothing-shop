@@ -1,4 +1,4 @@
-/* There are 3 types of buttons: default, inverted and google-sign-in */
+/* There are 3 types of buttons: base, inverted and google-sign-in */
 
 import './button.styles.scss';
 

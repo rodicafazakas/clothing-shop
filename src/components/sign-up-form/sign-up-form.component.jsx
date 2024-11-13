@@ -93,6 +93,7 @@ const SignUpForm = () => {
         
         <Button 
           className={`${COMPONENT}__submit`}
+          buttonType="base"
           type="submit"
         >
           SIGN UP
