@@ -7,7 +7,7 @@
   top: 0;
   margin-right: -15rem;
   margin-left: -15rem;
-  border-block-end: .5px solid $color-primary;
+  border-block-end: .5px solid #61210F;
   box-shadow: 0 .2rem .4rem 0 rgba(0, 0, 0, 0.2);
   margin-bottom: 5rem; // this could be an utility class
   background-color: white;
@@ -33,12 +33,13 @@
   }
 
   &__logo-main {
-    display: flex;
-    column-gap: 1.3rem;
-  }
-
-  &__company-first {
-    color: $color-primary;
+    background-image: linear-gradient(110.3deg, #EE6C4D 0%, $color-tertiary 100%);
+    -webkit-background-clip: text;
+    
+    a {
+      color: transparent;
+      font-family: 'sans-serif';
+    }
   }
 
   &__list {

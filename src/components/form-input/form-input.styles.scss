@@ -1,11 +1,7 @@
+@import "../../styles/globals";
+
 $input-default-color: grey;
 $input-focus-color: black;
-
-@mixin moveLabel {
-  top: -1.3rem;
-  font-size: 1.2rem;
-  color: $input-focus-color;
-}
 
 .form-input {
   display: flex;
@@ -14,7 +10,7 @@ $input-focus-color: black;
 
   &__label {
     color: $input-default-color;
-    font-size: 1.6rem;
+    font-size: $default-font-size;
     font-weight: normal;
     position: absolute;
     left: .5rem; 

@@ -10,7 +10,7 @@ const CategoryPreview = ({title, products}) => {
   return (
     <section className={COMPONENT}>
       <h2>
-        <Link className={`${COMPONENT}__title`} to={title}> 
+        <Link className={`${COMPONENT}__heading`} to={title}> 
           {title}
         </Link>  
       </h2>

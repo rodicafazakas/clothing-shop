@@ -5,4 +5,8 @@
   justify-content: space-between;
   row-gap: 2rem;
   column-gap: 2rem;
+
+  &:hover .category-item:not(:hover) {
+    transform: scale(.97);
+  }
 }

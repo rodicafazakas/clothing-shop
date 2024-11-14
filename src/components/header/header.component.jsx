@@ -25,7 +25,7 @@ const Header = () => {
   const signOutUser = () => dispatch(signOutStart());
   
   return (
-    <header className={COMPONENT}>
+    <header className={`${COMPONENT} u-margin-bottom-medium`}>
       <div className={`${COMPONENT}__container`}>
         <aside
           className={`${COMPONENT}__sidenav`}
@@ -35,9 +35,7 @@ const Header = () => {
         </aside>
 
         <h2 className={`${COMPONENT}__logo-main`}>
-          <Link className={`${COMPONENT}__link`} to='/'>
-            <span className={`${COMPONENT}__company-first`}>IN</span> FASHION
-          </Link>
+          <Link className={`${COMPONENT}__link`} to='/'> IN FASHION </Link>
         </h2>
 
         <ul className={`${COMPONENT}__list`}>

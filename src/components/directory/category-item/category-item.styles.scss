@@ -13,10 +13,12 @@
   border: none;
   position: relative;
   transition: transform .15s ease-out;
+  z-index: 10;
 
   &:hover {
     cursor: pointer;
-    transform: translateY(-2px)
+    transform: scale(1.05) translateY(-2px);
+    z-index: 20;
   }
 
   &__image {
@@ -53,7 +55,7 @@
   }
 
   p {
-    font-size: 1.6rem;
+    font-size: $default-font-size;
     font-weight: lighter;
     color: #4a4a4a;
   }
