@@ -5,7 +5,7 @@ import { render, screen } from '@testing-library/react';
 import store from './store/store';
 import App from './App';
 
-test('renders contact link', () => {
+test('renders shop link', () => {
   render(
     <Provider store={store}>
       <BrowserRouter>
@@ -13,6 +13,6 @@ test('renders contact link', () => {
       </BrowserRouter>
     </Provider>  
   );
-  const linkElement = screen.getByText(/CONTACT/i);
+  const linkElement = screen.getByText(/SHOP/i);
   expect(linkElement).toBeInTheDocument();
 });

@@ -33,7 +33,7 @@ const ProductCard = ({product}) => {
       
       <div className='product-card__info'>
         <span className='product-card__name'>{name}</span>
-        <span className='product-card__price'>${price}</span>
+        <span className='product-card__price'>€{price}</span>
       </div>
     </div>
   )

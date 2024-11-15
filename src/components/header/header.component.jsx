@@ -40,7 +40,7 @@ const Header = () => {
 
         <ul className={`${COMPONENT}__list`}>
           <li className={`${COMPONENT}__item`}>
-            <Link className={`${COMPONENT}__link`} to='/shop'>SHOP</Link>
+            <Link className={`${COMPONENT}__link`} to='/shop'>Shop</Link>
           </li> 
           { currentUser ? (
             <li className={`${COMPONENT}__item`}>
@@ -53,7 +53,7 @@ const Header = () => {
             </li>   
           ) : (        
             <li className={`${COMPONENT}__item`}>
-              <Link className={`${COMPONENT}__link`} to='/auth'>SIGN IN</Link>
+              <Link className={`${COMPONENT}__link`} to='/auth'>Sign in</Link>
             </li>
           )} 
           <li className={`${COMPONENT}__item`}>  
