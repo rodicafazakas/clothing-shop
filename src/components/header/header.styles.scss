@@ -10,7 +10,7 @@
   border-block-end: .5px solid #61210F;
   box-shadow: 0 .2rem .4rem 0 rgba(0, 0, 0, 0.2);
   margin-bottom: 5rem; // this could be an utility class
-  background-color: white;
+  background-color: #f7f7f7;
 
   &__container {
     height: 100%;
@@ -29,6 +29,7 @@
   &__burger {
     width: 5rem;
     height: 5rem;
+    opacity: 0.8;
     cursor: pointer;
   }
 

@@ -1,3 +1,5 @@
+@import "../../styles/globals";
+
 .product-card {
   height: 40rem;
   display: flex;
@@ -32,7 +34,8 @@
 
   &:hover {
     transform: translateY(-1.5rem) scale(1.03);
-    background-color: wheat;
-    outline: 1rem solid wheat;
+    background-color: $color-white-bright;
+    outline: 1rem solid $color-white-bright;
+    box-shadow: 0 1.5rem 4rem #00000026;
   }
 }
