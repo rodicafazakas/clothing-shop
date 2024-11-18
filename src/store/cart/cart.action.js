@@ -1,4 +1,4 @@
-import { createAction } from "../../utils/reducer/reducer.utils";
+import { createAction } from "../../utils/reducer/reducer.utils.ts";
 
 export const cartActionTypes = {
   setCartItems: "SET_CART_ITEMS",
