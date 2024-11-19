@@ -1,4 +1,4 @@
-export enum categoryActionTypes {
+export enum CategoryActionTypes {
   fetchCategoriesStart = 'FETCH_CATEGORIES_START',
   fetchCategoriesSuccess = 'FETCH_CATEGORIES_SUCCESS',
   fetchCategoriesFailed = 'FETCH_CATEGORIES_FAILED',
@@ -18,5 +18,5 @@ export type Category = {
 } 
 
 export type CategoryMap = {
-  [key: string]: Product[]
+  [key: string]: Product[];
 }

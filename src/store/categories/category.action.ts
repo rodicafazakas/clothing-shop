@@ -1,31 +1,26 @@
 // import { getCategoriesAndDocuments } from "../../utils/firebase/firebase.utils";
 import { createAction, Action, ActionWithPayload, withMatcher } from "../../utils/reducer/reducer.utils";
-import { categoryActionTypes, Category } from "./category.types";
+import { CategoryActionTypes, Category } from "./category.types";
 
-export type FetchCategoriesStart = Action<categoryActionTypes.fetchCategoriesStart>
+// The only 3 action types the category reducer is going to respond to
+export type FetchCategoriesStart = Action<CategoryActionTypes.fetchCategoriesStart>
+export type FetchCategoriesSuccess = ActionWithPayload<CategoryActionTypes.fetchCategoriesSuccess, Category[]>
+export type FetchCategoriesFailed = ActionWithPayload<CategoryActionTypes.fetchCategoriesFailed, Error>
 
-export type FetchCategoriesSuccess = ActionWithPayload<categoryActionTypes.fetchCategoriesSuccess, Category[]>
-
-export type FetchCategoriesFailed = ActionWithPayload<categoryActionTypes.fetchCategoriesFailed, Error>
-
-export type CategoryAction = 
-  | FetchCategoriesStart 
-  | FetchCategoriesSuccess
-  | FetchCategoriesFailed
 
 export const fetchCategoriesStart = withMatcher(
   (): FetchCategoriesStart => 
-    createAction(categoryActionTypes.fetchCategoriesStart)
+    createAction(CategoryActionTypes.fetchCategoriesStart)
 );
 
 export const fetchCategoriesSuccess = withMatcher(
   (categoriesArray: Category[]): FetchCategoriesSuccess => 
-    createAction(categoryActionTypes.fetchCategoriesSuccess, categoriesArray)
+    createAction(CategoryActionTypes.fetchCategoriesSuccess, categoriesArray)
 );
 
 export const fetchCategoriesFailed = withMatcher(
   (error: Error): FetchCategoriesFailed => 
-    createAction(categoryActionTypes.fetchCategoriesFailed, error)
+    createAction(CategoryActionTypes.fetchCategoriesFailed, error)
 );
 
 

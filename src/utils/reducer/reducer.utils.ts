@@ -1,8 +1,9 @@
 import { UnknownAction } from "redux";
 
+// Type predicate functions as action creator extensions
 type Matchable<AC extends () => UnknownAction> = AC & {
   type: ReturnType<AC>["type"];
-match(action: UnknownAction): action is ReturnType<AC>;
+  match(action: UnknownAction): action is ReturnType<AC>;
 }
 
 export function withMatcher<AC extends () => UnknownAction & { type: string }>(actionCreator: AC): Matchable<AC>
@@ -26,7 +27,6 @@ export type ActionWithPayload<T,P> = {
 export type Action<T> = {
   type: T;
 };
-
 
 export function createAction<T extends string, P>(type: T, payload: P): ActionWithPayload<T, P>
 export function createAction<T extends string>(type: T, payload: void): Action<T> 

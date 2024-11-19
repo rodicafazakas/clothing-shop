@@ -8,16 +8,17 @@ export type CategoriesState = {
   readonly error: Error | null;
 }
 
-const INITIAL_STATE: CategoriesState = {
+const CATEGORIES_INITIAL_STATE: CategoriesState = {
   categories: [],
   isLoading: false,
   error: null,
 };
 
 const categoryReducer = (
-  state = INITIAL_STATE, 
+  state = CATEGORIES_INITIAL_STATE, 
   action = {} as UnknownAction,
 ): CategoriesState => {
+
   if(fetchCategoriesStart.match(action)) {
     return {
       ...state,
@@ -42,28 +43,6 @@ const categoryReducer = (
   }
 
   return state;
-
-  // switch(action.type) {
-  //   case categoryActionTypes.fetchCategoriesStart:
-  //     return {
-  //       ...state,
-  //       isLoading: true
-  //     }
-  //   case categoryActionTypes.fetchCategoriesSuccess:
-  //     return {
-  //       ...state, 
-  //       categories: action.payload, 
-  //       isLoading: false,
-  //     };
-  //   case categoryActionTypes.fetchCategoriesFailed:
-  //     return {
-  //       ...state,
-  //       error: action.payload, 
-  //       isLoading: false,
-  //     }
-  //   default:
-  //     return state;
-  // }
 };
 
 export default categoryReducer;
