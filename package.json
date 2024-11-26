@@ -11,6 +11,7 @@
     "@types/node": "^22.9.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
+    "babel-plugin-macros": "^3.1.0",
     "firebase": "^10.13.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -24,6 +25,7 @@
     "redux-thunk": "^3.1.0",
     "reselect": "^5.1.1",
     "sass": "^1.77.8",
+    "typed-redux-saga": "^1.5.0",
     "typescript": "^5.6.3",
     "web-vitals": "2.1.4"
   },
@@ -50,5 +52,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/redux-logger": "^3.0.13"
   }
 }
