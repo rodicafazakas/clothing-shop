@@ -1,15 +1,19 @@
 import {
+  UserData,
+  AdditionalInformation,
+} from "../../utils/firebase/firebase.utils";
+import {
   Action,
   ActionWithPayload,
   createAction,
   withMatcher,
 } from "../../utils/reducer/reducer.utils";
-import { UserActionTypes, User } from "./user.types";
+import { UserActionTypes } from "./user.types";
 
 // The only action types the user reducer is going o respond to
 export type SetCurrentUser = ActionWithPayload<
   UserActionTypes.setCurrentUser,
-  User
+  UserData
 >;
 export type CheckUserSession = Action<UserActionTypes.checkUserSession>;
 export type GoogleSignInStart = Action<UserActionTypes.googleSignInStart>;
@@ -19,7 +23,7 @@ export type EmailSignInStart = ActionWithPayload<
 >;
 export type SignInSuccess = ActionWithPayload<
   UserActionTypes.signInSuccess,
-  User
+  UserData
 >;
 export type SignInFailed = ActionWithPayload<
   UserActionTypes.signInFailed,
@@ -31,7 +35,7 @@ export type SignUpStart = ActionWithPayload<
 >;
 export type SignUpSuccess = ActionWithPayload<
   UserActionTypes.signUpSuccess,
-  { user: User; additionalDetails: { displayName: string } }
+  { user: UserData; additionalDetails: AdditionalInformation }
 >;
 export type SignUpFailed = ActionWithPayload<
   UserActionTypes.signUpFailed,
@@ -46,7 +50,7 @@ export type SignOutFailed = ActionWithPayload<
 
 // User Actions
 export const setCurrentUser = withMatcher(
-  (user: User): SetCurrentUser =>
+  (user: UserData): SetCurrentUser =>
     createAction(UserActionTypes.setCurrentUser, user)
 );
 
@@ -63,7 +67,7 @@ export const emailSignInStart = withMatcher((email: string, password: string) =>
 );
 
 export const signInSuccess = withMatcher(
-  (user: User): SignInSuccess =>
+  (user: UserData): SignInSuccess =>
     createAction(UserActionTypes.signInSuccess, user)
 );
 
@@ -78,7 +82,7 @@ export const signUpStart = withMatcher(
 );
 
 export const signUpSuccess = withMatcher(
-  (user: User, additionalDetails: { displayName: string }): SignUpSuccess =>
+  (user: UserData, additionalDetails: AdditionalInformation): SignUpSuccess =>
     createAction(UserActionTypes.signUpSuccess, { user, additionalDetails })
 );
 

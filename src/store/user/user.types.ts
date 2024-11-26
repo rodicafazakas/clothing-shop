@@ -12,9 +12,3 @@ export enum UserActionTypes {
   signOutSuccess = "SIGN_OUT_SUCCESS",
   signOutFailed = "SIGN_OUT_FAILED",
 }
-
-export type User = {
-  createdAt: Date;
-  displayName: string;
-  email: string;
-};

@@ -6,10 +6,10 @@ import {
   signOutSuccess,
   signUpFailed,
 } from "./user.action";
-import { User } from "./user.types";
+import { UserData } from "../../utils/firebase/firebase.utils";
 
 export type UserState = {
-  readonly currentUser: User | null;
+  readonly currentUser: UserData | null;
   readonly isLoading: boolean;
   readonly error: Error | null;
 };
@@ -31,21 +31,11 @@ const userReducer = (
     };
   }
 
-  if (signInFailed.match(action)) {
-    return {
-      ...state,
-      error: action.payload,
-    };
-  }
-
-  if (signOutFailed.match(action)) {
-    return {
-      ...state,
-      error: action.payload,
-    };
-  }
-
-  if (signUpFailed.match(action)) {
+  if (
+    signInFailed.match(action) ||
+    signOutFailed.match(action) ||
+    signUpFailed.match(action)
+  ) {
     return {
       ...state,
       error: action.payload,

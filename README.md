@@ -1,1 +1,7 @@
-This is an E-commerce app with Redux, Firebase. Check it at https://infashion.netlify.app/ 
+This is an E-commerce app using the following tehnologies>
+
+- Redux
+- Typescript
+- Firebase.
+
+Check it at https://infashion.netlify.app/
