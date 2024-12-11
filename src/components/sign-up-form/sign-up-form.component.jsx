@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import FormInput  from '../form-input/form-input.component';
-import Button from "../button/button.component";
+import FormInput from "../form-input/form-input.component";
+import { Button } from "../button/button.component";
 
 import "./sign-up-form.styles.scss";
 import { signUpStart } from "../../store/user/user.action";
@@ -10,14 +10,14 @@ import { signUpStart } from "../../store/user/user.action";
 const COMPONENT = "sign-up-form";
 
 const initialFormFields = {
-  displayName: '',
-  email: '',
-  password: '',
-  confirmPassword: '',
+  displayName: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
 };
 
 const SignUpForm = () => {
-  const [ formFields, setFormFields ] = useState(initialFormFields);
+  const [formFields, setFormFields] = useState(initialFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
   const dispatch = useDispatch();
 
@@ -27,24 +27,24 @@ const SignUpForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    
-    if(password !== confirmPassword) {
-      alert('Wrong password');
+
+    if (password !== confirmPassword) {
+      alert("Wrong password");
       return;
     }
 
-    try{
+    try {
       dispatch(signUpStart(email, password, displayName));
       resetFormFields();
     } catch (error) {
-      console.log('error message', error.message);
-      console.log('error code', error.code);
+      console.log("error message", error.message);
+      console.log("error code", error.code);
     }
-  }; 
+  };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setFormFields({...formFields, [name]: value });
+    setFormFields({ ...formFields, [name]: value });
   };
 
   return (
@@ -55,53 +55,48 @@ const SignUpForm = () => {
         Sign up with your email and password
       </span>
 
-      <form 
-        className={`${COMPONENT}__inputs`}
-        onSubmit={handleSubmit}
-      >
+      <form className={`${COMPONENT}__inputs`} onSubmit={handleSubmit}>
         <FormInput
-          label="Display name" 
-          name="displayName" 
-          onChange={handleChange} 
+          label="Display name"
+          name="displayName"
+          onChange={handleChange}
           type="text"
-          value={displayName} 
+          value={displayName}
         />
 
-        <FormInput 
-          label="Email" 
-          name="email" 
-          onChange={handleChange} 
+        <FormInput
+          label="Email"
+          name="email"
+          onChange={handleChange}
           type="email"
-          value={email} 
+          value={email}
         />
 
-        <FormInput 
-          label="Password" 
-          name="password" 
-          onChange={handleChange} 
+        <FormInput
+          label="Password"
+          name="password"
+          onChange={handleChange}
           type="password"
-          value={password} 
+          value={password}
         />
 
-        <FormInput 
-          label="Confirm password" 
-          name="confirmPassword" 
-          onChange={handleChange} 
+        <FormInput
+          label="Confirm password"
+          name="confirmPassword"
+          onChange={handleChange}
           type="password"
-          value={confirmPassword} 
+          value={confirmPassword}
         />
-        
-        <Button 
+
+        <Button
           className={`${COMPONENT}__submit`}
           buttonType="base"
+          text="sign up"
           type="submit"
-        >
-          SIGN UP
-        </Button>
-
+        />
       </form>
     </div>
-  )
+  );
 };
 
 export default SignUpForm;

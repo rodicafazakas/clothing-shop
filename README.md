@@ -1,4 +1,4 @@
-This is an E-commerce app using the following tehnologies>
+This is an E-commerce app using the following tehnologies:
 
 - Redux
 - Typescript

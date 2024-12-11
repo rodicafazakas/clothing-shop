@@ -1,21 +1,24 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { emailSignInStart, googleSignInStart } from "../../store/user/user.action";
+import {
+  emailSignInStart,
+  googleSignInStart,
+} from "../../store/user/user.action";
 
 import FormInput from "../form-input/form-input.component";
-import Button from "../button/button.component";
+import { Button } from "../button/button.component";
 
 import "./sign-in-form.styles.scss";
 
-const COMPONENT ="sign-in-form";
+const COMPONENT = "sign-in-form";
 
 const initialFormFields = {
-  email: '',
-  password: '',
+  email: "",
+  password: "",
 };
 
 const SignInForm = () => {
-  const [ formFields, setFormFields] = useState(initialFormFields);
+  const [formFields, setFormFields] = useState(initialFormFields);
   const { email, password } = formFields;
   const dispatch = useDispatch();
 
@@ -25,7 +28,7 @@ const SignInForm = () => {
 
   const logGoogleUser = async () => {
     dispatch(googleSignInStart());
-  }  
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -40,14 +43,14 @@ const SignInForm = () => {
           break;
         default:
           console.log(error);
-      } 
-    }     
+      }
+    }
   };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setFormFields({...formFields, [name]: value});
-  }
+    setFormFields({ ...formFields, [name]: value });
+  };
 
   return (
     <div className={`${COMPONENT}`}>
@@ -57,48 +60,41 @@ const SignInForm = () => {
         Sign in with your email and password
       </span>
 
-      <form 
-        className={`${COMPONENT}__inputs`}
-        onSubmit={handleSubmit}
-      >
-        <FormInput 
-          label="Email" 
-          name="email" 
-          onChange={handleChange} 
+      <form className={`${COMPONENT}__inputs`} onSubmit={handleSubmit}>
+        <FormInput
+          label="Email"
+          name="email"
+          onChange={handleChange}
           type="email"
-          value={email} 
+          value={email}
         />
 
-        <FormInput 
-          label="Password" 
-          name="password" 
-          onChange={handleChange} 
+        <FormInput
+          label="Password"
+          name="password"
+          onChange={handleChange}
           type="password"
-          value={password} 
+          value={password}
         />
-        
+
         <section className={`${COMPONENT}__buttons-section`}>
-          <Button 
+          <Button
             className={`${COMPONENT}__submit`}
             buttonType="base"
+            text="sign in"
             type="submit"
-          >
-            SIGN IN
-          </Button>
+          />
 
-          <Button 
+          <Button
             onClick={logGoogleUser}
             buttonType="google-sign-in"
+            text="google sign in"
             type="button"
-          >
-            Google Sign In
-          </Button>
+          />
         </section>
-        
-
       </form>
     </div>
-  )
+  );
 };
 
 export default SignInForm;
