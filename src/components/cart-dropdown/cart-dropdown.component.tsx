@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectCartItems } from "../../store/cart/cart.selector";
 
-import { Button } from "../button/button.component";
+import { Button, ButtonTypes } from "../button/button.component";
 import CartItem from "../cart-item/cart-item.component";
 
 import "./cart-dropdown.styles.scss";
@@ -31,7 +31,7 @@ const CartDropdown = () => {
 
       <Button
         onClick={goToCheckoutHandler}
-        buttonType="base"
+        buttonType={ButtonTypes.base}
         text="GO TO CHECKOUT"
       />
     </div>
