@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
+import { AuthError } from "firebase/auth";
 import { useDispatch } from "react-redux";
 
 import FormInput from "../form-input/form-input.component";
-import { Button } from "../button/button.component";
+import { Button, ButtonTypes } from "../button/button.component";
 
 import "./sign-up-form.styles.scss";
 import { signUpStart } from "../../store/user/user.action";
@@ -25,7 +26,7 @@ const SignUpForm = () => {
     setFormFields(initialFormFields);
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     if (password !== confirmPassword) {
@@ -37,12 +38,12 @@ const SignUpForm = () => {
       dispatch(signUpStart(email, password, displayName));
       resetFormFields();
     } catch (error) {
-      console.log("error message", error.message);
-      console.log("error code", error.code);
+      console.log("error message", (error as AuthError).message);
+      console.log("error code", (error as AuthError).code);
     }
   };
 
-  const handleChange = (event) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormFields({ ...formFields, [name]: value });
   };
@@ -90,7 +91,7 @@ const SignUpForm = () => {
 
         <Button
           className={`${COMPONENT}__submit`}
-          buttonType="base"
+          buttonType={ButtonTypes.base}
           text="sign up"
           type="submit"
         />

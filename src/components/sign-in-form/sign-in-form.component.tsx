@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { useState, FormEvent, ChangeEvent } from "react";
 import { useDispatch } from "react-redux";
+
 import {
   emailSignInStart,
   googleSignInStart,
 } from "../../store/user/user.action";
-
 import FormInput from "../form-input/form-input.component";
-import { Button } from "../button/button.component";
+import { Button, ButtonTypes } from "../button/button.component";
 
 import "./sign-in-form.styles.scss";
 
@@ -30,24 +30,18 @@ const SignInForm = () => {
     dispatch(googleSignInStart());
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     try {
       dispatch(emailSignInStart(email, password));
       resetFormFields();
     } catch (error) {
-      switch (error.code) {
-        case "auth/invalid-credential":
-          alert("incorrect password for email");
-          break;
-        default:
-          console.log(error);
-      }
+      console.log(error);
     }
   };
 
-  const handleChange = (event) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormFields({ ...formFields, [name]: value });
   };
@@ -80,14 +74,14 @@ const SignInForm = () => {
         <section className={`${COMPONENT}__buttons-section`}>
           <Button
             className={`${COMPONENT}__submit`}
-            buttonType="base"
+            buttonType={ButtonTypes.base}
             text="sign in"
             type="submit"
           />
-
+          s
           <Button
             onClick={logGoogleUser}
-            buttonType="google-sign-in"
+            buttonType={ButtonTypes.google}
             text="google sign in"
             type="button"
           />
