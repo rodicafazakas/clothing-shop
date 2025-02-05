@@ -1,11 +1,11 @@
 import { UnknownAction } from "redux";
-import { CartItem } from "./cart.types";
+import { TCartItem } from "./cart.types";
 import { toggleCart, setCartItems } from "./cart.action";
 
 export type CartState = {
   readonly isCartOpen: boolean;
-  readonly cartItems: CartItem[];
-}
+  readonly cartItems: TCartItem[];
+};
 
 const CART_INITIAL_STATE: CartState = {
   isCartOpen: false,
@@ -13,20 +13,19 @@ const CART_INITIAL_STATE: CartState = {
 };
 
 const cartReducer = (
-  state = CART_INITIAL_STATE, 
-  action: UnknownAction,
+  state = CART_INITIAL_STATE,
+  action: UnknownAction
 ): CartState => {
-
-  if(toggleCart.match(action)) {
+  if (toggleCart.match(action)) {
     return {
-      ...state, 
+      ...state,
       isCartOpen: action.payload,
-    }
+    };
   }
 
-  if(setCartItems.match(action)) {
+  if (setCartItems.match(action)) {
     return {
-      ...state, 
+      ...state,
       cartItems: action.payload,
     };
   }

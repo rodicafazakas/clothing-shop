@@ -13,7 +13,7 @@ export enum ButtonTypes {
 export type ButtonProps = {
   buttonType: ButtonTypes;
   text: string;
-  isLoading: boolean;
+  isLoading?: boolean;
   className?: string;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
