@@ -1,5 +1,7 @@
 import { FC, ButtonHTMLAttributes } from "react";
 
+import Spinner from "../spinner/spinner.component";
+
 import "./button.styles.scss";
 
 export enum ButtonTypes {
@@ -11,6 +13,7 @@ export enum ButtonTypes {
 export type ButtonProps = {
   buttonType: ButtonTypes;
   text: string;
+  isLoading: boolean;
   className?: string;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
@@ -18,18 +21,20 @@ export const Button: FC<ButtonProps> = ({
   className,
   buttonType,
   text,
+  isLoading,
   ...rest
 }: ButtonProps) => {
   return (
     <button
-      className={`
+      className={`  
         btn 
         btn--${buttonType} 
         ${className}
       `}
+      disabled={isLoading}
       {...rest}
     >
-      {text}
+      {isLoading ? <Spinner /> : text}
     </button>
   );
 };
